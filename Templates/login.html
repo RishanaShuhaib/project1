@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-3">
+        <h1 class="display-5 text-center">Login</h1>
+    </div>
+    <form action="{% url 'login1' %}" method='post' class="mx-auto" style="max-width: 400px;">
+        {% csrf_token %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center" role="alert">{{message}}</div>
+        {% endfor %}
+        <div class="mb-3">
+            <label for="exampleInpuText3" class="form-label">Username</label>
+            <input type="text" name='username' class="form-control" id="exampleInpuText3" aria-describedby="usernameHelp" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+{% endblock %}

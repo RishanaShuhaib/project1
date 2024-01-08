@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+   
+    <div class="container mt-3">
+        <h1 class="display-5 text-center">Sign Up</h1>
+    </div>
+    
+    <div class="container mt-3 form-container" style="width:30%">
+        <form action="{% url 'usercreate' %}" method='post'>
+            {% csrf_token %}
+            {% for message in messages %}
+            <div class="alert alert-danger text-center" role="alert">{{message}}</div>
+            {% endfor %}
+            <div class="form-group">
+                <input type="text" name='firstname' class="form-control" id="exampleInputText1" aria-describedby="firstNameHelp" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <input type="text" name='lastname' class="form-control" id="exampleInputText2" aria-describedby="lastNameHelp" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <input type="text" name='username' class="form-control" id="exampleInpuText3" aria-describedby="usernameHelp" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="email" name='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Strong Password">
+            </div>
+            <div class="form-group">
+                <input type="password" name='cpassword' class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button><br><br>
+        </form>
+    </div>
+{% endblock %}
